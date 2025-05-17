@@ -66,7 +66,14 @@ git merge upstream main
    - Test on development period (2011-2024)
    - Test on holdout period (2025)
 
-4. **Detailed Evaluation**
+4. **Update leader board**
+   ```bash
+   python scripts/update_leaderboard.py src/strategies/my_strategy.py
+   ```
+   This will:
+   - Update your strategy results to the leaderboard.json
+
+5. **Detailed Evaluation**
    - Open `notebooks/evaluate.ipynb` in Jupyter
    - Change the `strategy_path` to point to your strategy file
    - Run all cells to see:
@@ -75,7 +82,7 @@ git merge upstream main
      - Buy/sell points overlaid on the price chart
      - Trade-by-trade analysis
 
-5. **Submit Your Strategy**
+6. **Submit Your Strategy**
    - Create a pull request
    - Our CI will validate and backtest your strategy
    - If successful, it will be added to the leaderboard
