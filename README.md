@@ -49,7 +49,7 @@ git merge upstream main
 
 1. **Copy the Template**
    ```bash
-   cp strategies/template.py strategies/my_strategy.py
+   cp strategies/template.py src/strategies/my_strategy.py
    ```
 
 2. **Edit Your Strategy**
