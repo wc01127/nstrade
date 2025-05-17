@@ -23,3 +23,14 @@ Go to [https://github.com/athon-millane/nstrade.git](https://github.com/athon-mi
 
 # initialize venv and sync packages
 `uv sync`
+
+# Sync with changes to the upstream repo (the one at `athon-millane` repo)
+Add upstream
+`git remote add upstream https://github.com/athon-millane/nstrade.git`
+
+Pull from upstream
+`git pull upstream main`
+
+Pull via fetch / merge (if you know what that means)
+`git fetch upstream`
+`git merge upstream main`
