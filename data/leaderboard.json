@@ -1,124 +1,125 @@
 {
     "strategies": [
-        {
-<<<<<<< HEAD
-            "author_name": "Lucien",
-            "strategy_name": "SMA Crossover 1",
-            "description": "Goes long when the 32-period SMA crosses above the 140-period SMA, and exits when it crosses below.",
-            "last_updated": "2025-05-17T09:58:22.770193Z",
-            "development_metrics": {
-                "sharpe": 1.3255701716105417,
-                "total_return": 37176.1940346568,
-                "max_drawdown": 0.8976062164340162,
-                "n_trades": 505,
-                "win_rate": 0.39603960396039606
-            },
-            "holdout_metrics": {
-                "sharpe": -0.692657754272795,
-                "total_return": -0.11414418233992363,
-                "max_drawdown": 0.2941198645359705,
-                "n_trades": 19,
-                "win_rate": 0.21052631578947367
-            }
+      {
+        "author_name": "Yuan",
+        "strategy_name": "Volume SMA Confirmation Strategy",
+        "description": "Goes long when the price breaks above the resistance with high volume, and exits when it breaks below the support with high volume.",
+        "last_updated": "2025-05-17T10:50:33.555705Z",
+        "development_metrics": {
+          "sharpe": 1.1497768598234075,
+          "total_return": 4483.2488594820325,
+          "max_drawdown": 0.8781365323919945,
+          "n_trades": 735,
+          "win_rate": 0.48707482993197276
         },
-        {
-            "author_name": "Ben",
-            "strategy_name": "SMA Crossover 1 - f30s120",
-            "description": "Goes long when the 30-period SMA crosses above the 120-period SMA, and exits when it crosses below.",
-            "last_updated": "2025-05-17T09:58:25.545939Z",
-            "development_metrics": {
-                "sharpe": 1.2890757652003817,
-                "total_return": 16908.019911407955,
-                "max_drawdown": 0.8924143378220439,
-                "n_trades": 584,
-                "win_rate": 0.4126712328767123
-            },
-            "holdout_metrics": {
-                "sharpe": 0.1546100984967055,
-                "total_return": -0.005179828456650437,
-                "max_drawdown": 0.2720590455045794,
-                "n_trades": 20,
-                "win_rate": 0.25
-            }
-        },
-        {
-            "author_name": "Mahak",
-            "strategy_name": "Advanced Buy And Hold Strategy",
-            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
-            "last_updated": "2025-05-17T10:08:45.172317Z",
-            "development_metrics": {
-                "sharpe": 1.4933060731407406,
-                "total_return": 31828.251724137932,
-                "max_drawdown": 0.9112345532958346,
-                "n_trades": 1,
-                "win_rate": 1.0
-            },
-            "holdout_metrics": {
-                "sharpe": 0.5471567498458149,
-                "total_return": 0.057312580028671345,
-                "max_drawdown": 0.3092850660964837,
-                "n_trades": 1,
-                "win_rate": 1.0
-=======
-            "author_name": "Yuan",
-            "strategy_name": "Volume SMA Confirmation Strategy",
-            "description": "Goes long when the price breaks above the resistance with high volume, and exits when it breaks below the support with high volume.",
-            "last_updated": "2025-05-17T10:50:33.555705Z",
-            "development_metrics": {
-                "sharpe": 1.1497768598234075,
-                "total_return": 4483.2488594820325,
-                "max_drawdown": 0.8781365323919945,
-                "n_trades": 735,
-                "win_rate": 0.48707482993197276
-            },
-            "holdout_metrics": {
-                "sharpe": 0.7297079146266436,
-                "total_return": 0.07258730731958374,
-                "max_drawdown": 0.19649304246128135,
-                "n_trades": 26,
-                "win_rate": 0.46153846153846156
->>>>>>> 8e98cea (yuan's VolumeSMAConfirmationStrategy)
-            }
-        },
-        {
-            "author_name": "Example Author",
-            "strategy_name": "Example Strategy",
-            "description": "An example strategy",
-            "development_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            },
-            "holdout_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            },
-            "last_updated": "2024-01-01T00:00:00Z"
-        },
-        {
-            "author_name": "YOUR_NAME",
-            "strategy_name": "YOUR_STRATEGY_NAME",
-            "description": "DESCRIBE YOUR STRATEGY HERE",
-            "last_updated": "2025-05-17T08:23:59.481326Z",
-            "development_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            },
-            "holdout_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            }
+        "holdout_metrics": {
+          "sharpe": 0.7297079146266436,
+          "total_return": 0.07258730731958374,
+          "max_drawdown": 0.19649304246128135,
+          "n_trades": 26,
+          "win_rate": 0.46153846153846156
         }
+      },
+      {
+        "author_name": "Lucien",
+        "strategy_name": "SMA Crossover 1",
+        "description": "Goes long when the 32-period SMA crosses above the 140-period SMA, and exits when it crosses below.",
+        "last_updated": "2025-05-17T09:58:22.770193Z",
+        "development_metrics": {
+          "sharpe": 1.3255701716105417,
+          "total_return": 37176.1940346568,
+          "max_drawdown": 0.8976062164340162,
+          "n_trades": 505,
+          "win_rate": 0.39603960396039606
+        },
+        "holdout_metrics": {
+          "sharpe": -0.692657754272795,
+          "total_return": -0.11414418233992363,
+          "max_drawdown": 0.2941198645359705,
+          "n_trades": 19,
+          "win_rate": 0.21052631578947367
+        }
+      },
+      {
+        "author_name": "Ben",
+        "strategy_name": "SMA Crossover 1 - f30s120",
+        "description": "Goes long when the 30-period SMA crosses above the 120-period SMA, and exits when it crosses below.",
+        "last_updated": "2025-05-17T09:58:25.545939Z",
+        "development_metrics": {
+          "sharpe": 1.2890757652003817,
+          "total_return": 16908.019911407955,
+          "max_drawdown": 0.8924143378220439,
+          "n_trades": 584,
+          "win_rate": 0.4126712328767123
+        },
+        "holdout_metrics": {
+          "sharpe": 0.1546100984967055,
+          "total_return": -0.005179828456650437,
+          "max_drawdown": 0.2720590455045794,
+          "n_trades": 20,
+          "win_rate": 0.25
+        }
+      },
+      {
+        "author_name": "Mahak",
+        "strategy_name": "Advanced Buy And Hold Strategy",
+        "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
+        "last_updated": "2025-05-17T10:08:45.172317Z",
+        "development_metrics": {
+          "sharpe": 1.4933060731407406,
+          "total_return": 31828.251724137932,
+          "max_drawdown": 0.9112345532958346,
+          "n_trades": 1,
+          "win_rate": 1.0
+        },
+        "holdout_metrics": {
+          "sharpe": 0.5471567498458149,
+          "total_return": 0.057312580028671345,
+          "max_drawdown": 0.3092850660964837,
+          "n_trades": 1,
+          "win_rate": 1.0
+        }
+      },
+      {
+        "author_name": "Example Author",
+        "strategy_name": "Example Strategy",
+        "description": "An example strategy",
+        "development_metrics": {
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "max_drawdown": 0.0,
+          "n_trades": 0,
+          "win_rate": 0.0
+        },
+        "holdout_metrics": {
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "max_drawdown": 0.0,
+          "n_trades": 0,
+          "win_rate": 0.0
+        },
+        "last_updated": "2024-01-01T00:00:00Z"
+      },
+      {
+        "author_name": "YOUR_NAME",
+        "strategy_name": "YOUR_STRATEGY_NAME",
+        "description": "DESCRIBE YOUR STRATEGY HERE",
+        "last_updated": "2025-05-17T08:23:59.481326Z",
+        "development_metrics": {
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "max_drawdown": 0.0,
+          "n_trades": 0,
+          "win_rate": 0.0
+        },
+        "holdout_metrics": {
+          "sharpe": 0.0,
+          "total_return": 0.0,
+          "max_drawdown": 0.0,
+          "n_trades": 0,
+          "win_rate": 0.0
+        }
+      }
     ]
-}
+  }
+  
