@@ -121,6 +121,26 @@
             }
         },
         {
+            "author_name": "Yuan",
+            "strategy_name": "Volume SMA Confirmation Strategy",
+            "description": "Goes long when the price breaks above the resistance with high volume, and exits when it breaks below the support with high volume.",
+            "last_updated": "2025-05-17T10:50:33.555705Z",
+            "development_metrics": {
+                "sharpe": 1.1497768598234075,
+                "total_return": 4483.2488594820325,
+                "max_drawdown": 0.8781365323919945,
+                "n_trades": 735,
+                "win_rate": 0.48707482993197276
+            },
+            "holdout_metrics": {
+                "sharpe": 0.7297079146266436,
+                "total_return": 0.07258730731958374,
+                "max_drawdown": 0.19649304246128135,
+                "n_trades": 26,
+                "win_rate": 0.46153846153846156
+            }
+        },
+        {
             "author_name": "Example Author",
             "strategy_name": "Example Strategy",
             "description": "An example strategy",
