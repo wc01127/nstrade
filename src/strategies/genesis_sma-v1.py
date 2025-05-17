@@ -12,7 +12,7 @@ class SMACrossoverStrategy(Strategy):
             initial_capital=initial_capital,
             author_name="Genesis",
             strategy_name="SMA Crossover 1",
-            description="Goes long when the 30-period SMA crosses above the 120-period SMA, and exits when it crosses below."
+            description="Goes long when the 25-period SMA crosses above the 150-period SMA, and exits when it crosses below."
         )
         self.prices = []
         self.fast = fast
