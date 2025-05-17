@@ -49,7 +49,7 @@ git merge upstream main
 
 1. **Copy the Template**
    ```bash
-   cp strategies/template.py strategies/my_strategy.py
+   cp src/strategies/template.py src/strategies/my_strategy.py
    ```
 
 2. **Edit Your Strategy**
@@ -59,14 +59,21 @@ git merge upstream main
 
 3. **Quick Test**
    ```bash
-   python scripts/test_strategy.py strategies/my_strategy.py
+   python scripts/test_strategy.py src/strategies/my_strategy.py
    ```
    This will:
    - Validate your strategy implementation
    - Test on development period (2011-2024)
    - Test on holdout period (2025)
 
-4. **Detailed Evaluation**
+4. **Update leader board**
+   ```bash
+   python scripts/update_leaderboard.py src/strategies/my_strategy.py
+   ```
+   This will:
+   - Update your strategy results to the leaderboard.json
+
+5. **Detailed Evaluation**
    - Open `notebooks/evaluate.ipynb` in Jupyter
    - Change the `strategy_path` to point to your strategy file
    - Run all cells to see:
@@ -75,7 +82,7 @@ git merge upstream main
      - Buy/sell points overlaid on the price chart
      - Trade-by-trade analysis
 
-5. **Submit Your Strategy**
+6. **Submit Your Strategy**
    - Create a pull request
    - Our CI will validate and backtest your strategy
    - If successful, it will be added to the leaderboard
