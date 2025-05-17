@@ -18,13 +18,6 @@ class AryanDCStrategy(Strategy):
         self.prices = []
         self.last_signal = 'hold'
 
-    def process_bar(self, bar):
-        self.current_bar = bar
-        self.prices.append(bar['close'])
-
-    def get_signal(self):
-        return self.last_signal
-
     def get_signals(self, df: pd.DataFrame) -> pd.Series:
         # Print column names for debugging
         print(f"Available columns in DataFrame: {df.columns.tolist()}")
@@ -87,3 +80,4 @@ class AryanDCStrategy(Strategy):
             print(f"Error calculating signals: {str(e)}")
             # Return a series of 'hold' signals as fallback
             return pd.Series('hold', index=df.index)
+        
