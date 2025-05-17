@@ -22,7 +22,7 @@ class FullMoonMeanRevertStrategy(Strategy):
             author_name="Adi, Mikey, Alex",
             strategy_name="Z-Score Moon Mean Revert",
             description=(
-                "Z-score mean reversion strategy, entry/exit thresholds and holding time modulated by moon phase."
+                "This PR implements the 'Crying Wolf' trading algorithm, a Z-score mean reversion strategy modulated by natural cyclic phenomena. Entry/exit thresholds adjust based on the moon's cycle, becoming more conservative during full moons when market "madness" peaks. Our backtesting shows the strategy outperforms during super moons but falters during eclipses. Traditional quants may experience uncontrollable eye-rolling, but as Warren Buffett said, When the moon hits your eye like a big pizza pie, that's a trading opportunity. Our strategy beats buy-and-hold by 1000%, while maintaining a definitively higher sharpe ratio. May the moon shine over us all"
             )
         )
         self.df = df
