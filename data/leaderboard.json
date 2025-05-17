@@ -1,0 +1,44 @@
+{
+    "strategies": [
+        {
+            "author_name": "Example Author",
+            "strategy_name": "Example Strategy",
+            "description": "An example strategy",
+            "development_metrics": {
+                "sharpe": 0.0,
+                "total_return": 0.0,
+                "max_drawdown": 0.0,
+                "n_trades": 0,
+                "win_rate": 0.0
+            },
+            "holdout_metrics": {
+                "sharpe": 0.0,
+                "total_return": 0.0,
+                "max_drawdown": 0.0,
+                "n_trades": 0,
+                "win_rate": 0.0
+            },
+            "last_updated": "2024-01-01T00:00:00Z"
+        },
+        {
+            "author_name": "YOUR_NAME",
+            "strategy_name": "YOUR_STRATEGY_NAME",
+            "description": "DESCRIBE YOUR STRATEGY HERE",
+            "last_updated": "2025-05-17T08:23:59.481326Z",
+            "development_metrics": {
+                "sharpe": 0.0,
+                "total_return": 0.0,
+                "max_drawdown": 0.0,
+                "n_trades": 0,
+                "win_rate": 0.0
+            },
+            "holdout_metrics": {
+                "sharpe": 0.0,
+                "total_return": 0.0,
+                "max_drawdown": 0.0,
+                "n_trades": 0,
+                "win_rate": 0.0
+            }
+        }
+    ]
+}
