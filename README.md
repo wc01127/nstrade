@@ -1,61 +1,122 @@
 # nstrade
+
 NS Learnathon - Trading for Bitcoin
 
-# install brew
-Go to `brew.sh`
+## Setup
 
-# install uv
-If on mac
-`brew install uv`
+### Prerequisites
 
-Apparently `uv` is `poetry` but better in every way. To be seen.
+1. **Install Homebrew**
+   - Visit [brew.sh](https://brew.sh)
 
-[website here](https://docs.astral.sh/uv/getting-started/installation/)
+2. **Install uv**
+   ```bash
+   # On macOS
+   brew install uv
+   ```
+   > Note: `uv` is like `poetry` but better in every way. [Learn more](https://docs.astral.sh/uv/getting-started/installation/)
 
-# fork the repo
-Go to [https://github.com/athon-millane/nstrade.git](https://github.com/athon-millane/nstrade.git) and fork the repo
+3. **Fork and Clone**
+   ```bash
+   # Fork the repo at https://github.com/athon-millane/nstrade.git
+   git clone https://github.com/your-username/nstrade.git
+   ```
 
-# clone the repo
-`git clone https://github.com/your-username/nstrade.git`
+4. **Python Setup**
+   ```bash
+   # Optional: Install Python 3.12 if needed
+   uv python install 3.12
+   
+   # Initialize venv and install dependencies
+   uv sync
+   ```
 
-# Optional: install python if you don't have version 3.12
-`uv python install 3.12`
+### Syncing with Upstream
 
-# initialize venv and sync packages
-`uv sync`
+```bash
+# Add upstream remote
+git remote add upstream https://github.com/athon-millane/nstrade.git
 
-# Sync with changes to the upstream repo (the one at `athon-millane` repo)
-Add upstream
-`git remote add upstream https://github.com/athon-millane/nstrade.git`
+# Pull from upstream (either method)
+git pull upstream main
 
-Pull from upstream
-`git pull upstream main`
+# OR
+git fetch upstream
+git merge upstream main
+```
 
-Pull via fetch / merge (if you know what that means)
-`git fetch upstream`
-`git merge upstream main`
+## Creating a New Strategy
 
-# To do
- - [ ] Speed up backtest (maybe vectorise, maybe parallelise)
- - [ ] Set up a standardised flow for creating, contributing and backtesting and new `Strategy`
- - [ ] Capture user metadata in that Strategy, so that we can show it on a leaderboard in our web UI (tbd)
- - [ ] Set up CI/CD YAML file which does the following:
-   - Checks a users Strategy is legit (can be backtested). If not, reject, is so continue
-   - Backtests the strategy on our dataset
-   - Stores results (along with user metadata) in our leaderboard file. A unique submission will be based on User name + Strategy name. If the same user + strategy exists already, overwrite it.
-   - We want to define our `development set` (essentially our training set), and also our `holdout set`
-       - `development.csv` will have all data up to the end of 2024
-       - `holdout.csv` will have all of 2025
-       - Strategies should only leverage `development.csv`
+1. **Copy the Template**
+   ```bash
+   cp strategies/template.py strategies/my_strategy.py
+   ```
 
-# Future metrics
- - Let's start with `Sharpe` as our north star - acknowedge this isn't perfect
- - Drawdown, win rate, Sharpe ratio, Sortino, r^2 of equity
- - Barnabas suggest we use `r^2` of the equity curve
+2. **Edit Your Strategy**
+   - Set your name, strategy name, and description
+   - Implement your strategy logic in `process_bar()` and `get_signal()`
+   - Optionally implement a vectorized version in `get_signals()`
 
-# Security
- - For this version, we will just check that test data isn't used in Strategy development
- - This is not the challenge we're here to solve right now
+3. **Quick Test**
+   ```bash
+   python scripts/test_strategy.py strategies/my_strategy.py
+   ```
+   This will:
+   - Validate your strategy implementation
+   - Test on development period (2011-2024)
+   - Test on holdout period (2025)
 
-# Comment
- - SMA Crossover still looks potentially too good to be true.
+4. **Detailed Evaluation**
+   - Open `notebooks/evaluate.ipynb` in Jupyter
+   - Change the `strategy_path` to point to your strategy file
+   - Run all cells to see:
+     - Detailed performance metrics
+     - Interactive plots of price, volume, equity curve, drawdowns, and Sharpe ratio
+     - Buy/sell points overlaid on the price chart
+     - Trade-by-trade analysis
+
+5. **Submit Your Strategy**
+   - Create a pull request
+   - Our CI will validate and backtest your strategy
+   - If successful, it will be added to the leaderboard
+
+## Project Status
+
+### Completed
+- [x] Speed up backtest (maybe vectorise, maybe parallelise)
+- [x] Set up a standardised flow for creating, contributing and backtesting new `Strategy`
+- [x] Capture user metadata in Strategy for leaderboard display
+
+### To Do
+- [ ] Set up CI/CD YAML file:
+  - Validate strategy backtestability
+  - Run backtests on our dataset
+  - Store results in leaderboard file
+  - Handle unique submissions (User + Strategy name)
+  - Define development/holdout sets:
+    - `development.csv`: Data up to end of 2024
+    - `holdout.csv`: All of 2025
+    - Strategies should only use `development.csv`
+
+## Metrics
+
+### Current Focus
+- Sharpe ratio as primary metric
+- Drawdown
+- Win rate
+- Number of trades
+
+### Future Metrics
+- Sortino ratio
+- R² of equity curve (suggested by Barnabas)
+
+## Notes
+
+### Security
+- Current focus: Ensure test data isn't used in strategy development
+- More comprehensive security measures to be addressed later
+
+### Observations
+- SMA Crossover performance appears suspiciously good
+- Most bootstrapped strategies perform poorly without fees and slippage
+- Recommended: Include 0.3% fee+slippage per trade

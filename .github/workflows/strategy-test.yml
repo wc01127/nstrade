@@ -1,0 +1,50 @@
+name: Strategy Test
+
+on:
+  pull_request:
+    paths:
+      - 'src/strategies/**'
+      - '.github/workflows/strategy-test.yml'
+
+jobs:
+  test-strategy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        
+    - name: Install dependencies
+      run: |
+        uv sync
+        
+    - name: Find changed strategy files
+      id: find-strategies
+      run: |
+        STRATEGIES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep 'src/strategies/.*\.py$' || true)
+        echo "strategies<<EOF" >> $GITHUB_OUTPUT
+        echo "$STRATEGIES" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
+    - name: Test strategies
+      if: steps.find-strategies.outputs.strategies != ''
+      run: |
+        for strategy in ${{ steps.find-strategies.outputs.strategies }}; do
+          echo "Testing $strategy..."
+          python scripts/test_strategy.py "$strategy"
+        done
+        
+    - name: Update leaderboard
+      if: steps.find-strategies.outputs.strategies != ''
+      run: |
+        # TODO: Implement leaderboard update
+        echo "Leaderboard update not yet implemented" 
