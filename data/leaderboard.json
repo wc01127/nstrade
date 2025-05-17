@@ -21,6 +21,46 @@
             }
         },
         {
+            "author_name": "AryanBhargav",
+            "strategy_name": "Donchian Channel Strategy",
+            "description": "Trades breakouts based on a 20-period Donchian Channel.",
+            "last_updated": "2025-05-17T10:48:50.558267Z",
+            "development_metrics": {
+                "sharpe": 1.6853335109249008,
+                "total_return": 298002959.9805029,
+                "max_drawdown": 0.9739392202670737,
+                "n_trades": 1096,
+                "win_rate": 0.3841240875912409
+            },
+            "holdout_metrics": {
+                "sharpe": 3.4561142192298537,
+                "total_return": 0.5106176445329746,
+                "max_drawdown": 0.06595856609634526,
+                "n_trades": 34,
+                "win_rate": 0.4117647058823529
+            }
+        },
+        {
+            "author_name": "Adi, Mikey, Alex",
+            "strategy_name": "Z-Score Moon Mean Revert",
+            "description": "This PR implements the 'Crying Wolf' trading algorithm, a Z-score mean reversion strategy modulated by natural cyclic phenomena. Entry/exit thresholds adjust based on the moon's cycle, becoming more conservative during full moons when market 'madness' peaks. Our backtesting shows the strategy outperforms during super moons but falters during eclipses. Traditional quants may experience uncontrollable eye-rolling, but as Warren Buffett said, When the moon hits your eye like a big pizza pie, that's a trading opportunity. Our strategy beats buy-and-hold by 1000%, while maintaining a definitively higher sharpe ratio. May the moon shine over us all",
+            "last_updated": "2025-05-17T12:48:24.059589Z",
+            "development_metrics": {
+                "sharpe": 1.6440636071120915,
+                "total_return": 138493571.09371865,
+                "max_drawdown": 0.7819300872251194,
+                "n_trades": 8066,
+                "win_rate": 0.5090503347384081
+            },
+            "holdout_metrics": {
+                "sharpe": 0.9504328150744347,
+                "total_return": 0.12252505311449768,
+                "max_drawdown": 0.1671603743892358,
+                "n_trades": 229,
+                "win_rate": 0.4847161572052402
+            }
+        },
+        {
             "author_name": "Mahak",
             "strategy_name": "Advanced Buy And Hold Strategy",
             "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
@@ -138,26 +178,6 @@
                 "max_drawdown": 0.19649304246128135,
                 "n_trades": 26,
                 "win_rate": 0.46153846153846156
-            }
-        },
-        {
-            "author_name": "AryanBhargav",
-            "strategy_name": "Donchian Channel Strategy",
-            "description": "Trades breakouts based on a 20-period Donchian Channel.",
-            "last_updated": "2025-05-17T10:48:50.558267Z",
-            "development_metrics": {
-                "sharpe": 1.6853335109249008,
-                "total_return": 298002959.9805029,
-                "max_drawdown": 0.9739392202670737,
-                "n_trades": 1096,
-                "win_rate": 0.3841240875912409
-            },
-            "holdout_metrics": {
-                "sharpe": 3.4561142192298537,
-                "total_return": 0.5106176445329746,
-                "max_drawdown": 0.06595856609634526,
-                "n_trades": 34,
-                "win_rate": 0.4117647058823529
             }
         },
         {
