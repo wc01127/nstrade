@@ -17,7 +17,7 @@ def total_return(equity_curve):
     """
     Total return over the period.
     """
-    return (equity_curve[-1] / equity_curve[0]) - 1
+    return (equity_curve.iloc[-1] / equity_curve.iloc[0]) - 1
 
 def n_trades(trades):
     """
@@ -50,7 +50,7 @@ def annualized_return(equity_curve, periods_per_year=8760):
     n_periods = len(equity_curve) - 1
     if n_periods == 0:
         return 0.0
-    total_ret = equity_curve[-1] / equity_curve[0]
+    total_ret = equity_curve.iloc[-1] / equity_curve.iloc[0]
     ann_ret = total_ret ** (periods_per_year / n_periods) - 1
     return ann_ret
 
@@ -86,6 +86,11 @@ def realized_drawdown_series(equity_curve, trades):
     for trade in trades:
         entry_idx = trade['entry_idx']
         exit_idx = trade['exit_idx']
+        print(f"REALIZED DD: entry_idx={entry_idx}, exit_idx={exit_idx}, equity_len={len(equity)}")
+        # Defensive: check bounds
+        if entry_idx < 0 or exit_idx < 0 or entry_idx >= len(equity) or exit_idx >= len(equity):
+            print(f"WARNING: Out of bounds! entry_idx={entry_idx}, exit_idx={exit_idx}, equity_len={len(equity)}")
+            continue
         trade_equity = equity.loc[entry_idx:exit_idx]
         peak = trade_equity.cummax()
         dd = (peak - trade_equity) / peak

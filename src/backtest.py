@@ -6,7 +6,7 @@ from metrics import (
 
 def run_backtest(strategy_class, csv_path, initial_capital=10000):
     # Load data
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path).head(1000)
     # Data cleaning: keep only time, close, volumeto; cast time to datetime; rename volumeto to volume
     df = df[['time', 'close', 'volumeto']].copy()
     df['time'] = pd.to_datetime(df['time'])
@@ -31,19 +31,21 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
             entry_price = row['close']
             strat.position = 1
             strat.entry_price = entry_price
-            # Use the current length of equity_curve as entry_idx
-            trade = {'entry': row['time'], 'entry_idx': len(equity_curve), 'entry_price': entry_price}
+            entry_idx = len(equity_curve) - 1
+            print(f"BUY: time={row['time']}, entry_idx={entry_idx}, equity_curve_len={len(equity_curve)}")
+            trade = {'entry': row['time'], 'entry_idx': entry_idx, 'entry_price': entry_price}
         elif signal == 'sell' and position == 1:
             position = 0
             exit_price = row['close']
             pnl = (exit_price - entry_price) / entry_price * equity_curve[-1]
-            # Use the current length of equity_curve as exit_idx (before appending new equity)
+            exit_idx = len(equity_curve) - 1
+            print(f"SELL: time={row['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}")
             strat.trades.append({
                 'entry': trade['entry'],
                 'entry_idx': trade['entry_idx'],
                 'entry_price': trade['entry_price'],
                 'exit': row['time'],
-                'exit_idx': len(equity_curve),
+                'exit_idx': exit_idx,
                 'exit_price': exit_price,
                 'pnl': pnl
             })
@@ -65,13 +67,14 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
     if position == 1:
         exit_price = df.iloc[-1]['close']
         pnl = (exit_price - entry_price) / entry_price * equity_curve[-1]
-        # Use the current length of equity_curve as exit_idx (before appending new equity)
+        exit_idx = len(equity_curve) - 1
+        print(f"FINAL SELL: time={df.iloc[-1]['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}")
         strat.trades.append({
             'entry': trade['entry'],
             'entry_idx': trade['entry_idx'],
             'entry_price': trade['entry_price'],
             'exit': df.iloc[-1]['time'],
-            'exit_idx': len(equity_curve),
+            'exit_idx': exit_idx,
             'exit_price': exit_price,
             'pnl': pnl
         })
