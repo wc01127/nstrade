@@ -181,43 +181,23 @@
             }
         },
         {
-            "author_name": "Example Author",
-            "strategy_name": "Example Strategy",
-            "description": "An example strategy",
+            "author_name": "Lucien",
+            "strategy_name": "EMA Crossover + Adaptive ATR Filter",
+            "description": "Buy when fast EMA > slow EMA and ATR% > rolling quantile threshold; sell on reversal or low adaptive volatility.",
+            "last_updated": "2025-05-17T12:47:24.735129Z",
             "development_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
+                "sharpe": 1.217803722952385,
+                "total_return": 36432.64411560105,
+                "max_drawdown": 0.8861273181842388,
+                "n_trades": 2787,
+                "win_rate": 0.5331898098313599
             },
             "holdout_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            },
-            "last_updated": "2024-01-01T00:00:00Z"
-        },
-        {
-            "author_name": "YOUR_NAME",
-            "strategy_name": "YOUR_STRATEGY_NAME",
-            "description": "DESCRIBE YOUR STRATEGY HERE",
-            "last_updated": "2025-05-17T08:23:59.481326Z",
-            "development_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
-            },
-            "holdout_metrics": {
-                "sharpe": 0.0,
-                "total_return": 0.0,
-                "max_drawdown": 0.0,
-                "n_trades": 0,
-                "win_rate": 0.0
+                "sharpe": 1.2721023608824928,
+                "total_return": 0.11707790357354719,
+                "max_drawdown": 0.16707933054084675,
+                "n_trades": 76,
+                "win_rate": 0.5263157894736842
             }
         }
     ]
