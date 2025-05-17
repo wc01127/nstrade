@@ -1,6 +1,26 @@
 {
     "strategies": [
         {
+            "author_name": "Ben",
+            "strategy_name": "SMA Crossover 1 - f30s120",
+            "description": "Goes long when the 30-period SMA crosses above the 120-period SMA, and exits when it crosses below.",
+            "last_updated": "2025-05-17T09:58:25.545939Z",
+            "development_metrics": {
+                "sharpe": 1.2890757652003817,
+                "total_return": 16908.019911407955,
+                "max_drawdown": 0.8924143378220439,
+                "n_trades": 584,
+                "win_rate": 0.4126712328767123
+            },
+            "holdout_metrics": {
+                "sharpe": 0.1546100984967055,
+                "total_return": -0.005179828456650437,
+                "max_drawdown": 0.2720590455045794,
+                "n_trades": 20,
+                "win_rate": 0.25
+            }
+        },
+        {
             "author_name": "Example Author",
             "strategy_name": "Example Strategy",
             "description": "An example strategy",
