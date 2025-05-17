@@ -61,6 +61,26 @@
             }
         },
         {
+            "author_name": "AryanBhargav",
+            "strategy_name": "Donchian Channel Strategy",
+            "description": "Trades breakouts based on a 20-period Donchian Channel.",
+            "last_updated": "2025-05-17T10:48:50.558267Z",
+            "development_metrics": {
+                "sharpe": 1.6853335109249008,
+                "total_return": 298002959.9805029,
+                "max_drawdown": 0.9739392202670737,
+                "n_trades": 1096,
+                "win_rate": 0.3841240875912409
+            },
+            "holdout_metrics": {
+                "sharpe": 3.4561142192298537,
+                "total_return": 0.5106176445329746,
+                "max_drawdown": 0.06595856609634526,
+                "n_trades": 34,
+                "win_rate": 0.4117647058823529
+            }
+        },
+        {
             "author_name": "Example Author",
             "strategy_name": "Example Strategy",
             "description": "An example strategy",
