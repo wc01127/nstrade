@@ -1,6 +1,26 @@
 {
     "strategies": [
         {
+            "author_name": "Mahak",
+            "strategy_name": "Advanced Buy And Hold Strategy",
+            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
+            "last_updated": "2025-05-17T10:08:45.172317Z",
+            "development_metrics": {
+                "sharpe": 1.4933060731407406,
+                "total_return": 31828.251724137932,
+                "max_drawdown": 0.9112345532958346,
+                "n_trades": 1,
+                "win_rate": 1.0
+            },
+            "holdout_metrics": {
+                "sharpe": 0.5471567498458149,
+                "total_return": 0.057312580028671345,
+                "max_drawdown": 0.3092850660964837,
+                "n_trades": 1,
+                "win_rate": 1.0
+            }
+        },
+        {
             "author_name": "Lucien",
             "strategy_name": "SMA Crossover 1",
             "description": "Goes long when the 32-period SMA crosses above the 140-period SMA, and exits when it crosses below.",
@@ -41,23 +61,23 @@
             }
         },
         {
-            "author_name": "Mahak",
-            "strategy_name": "Advanced Buy And Hold Strategy",
-            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
-            "last_updated": "2025-05-17T10:08:45.172317Z",
+            "author_name": "Aditya",
+            "strategy_name": "SMA Crossover 1",
+            "description": "Goes long when the 30-period SMA crosses above the 120-period SMA, and exits when it crosses below.",
+            "last_updated": "2025-05-17T12:42:57.466976Z",
             "development_metrics": {
-                "sharpe": 1.4933060731407406,
-                "total_return": 31828.251724137932,
-                "max_drawdown": 0.9112345532958346,
-                "n_trades": 1,
-                "win_rate": 1.0
+                "sharpe": 1.2890757652003817,
+                "total_return": 16908.019911407955,
+                "max_drawdown": 0.8924143378220439,
+                "n_trades": 584,
+                "win_rate": 0.4126712328767123
             },
             "holdout_metrics": {
-                "sharpe": 0.5471567498458149,
-                "total_return": 0.057312580028671345,
-                "max_drawdown": 0.3092850660964837,
-                "n_trades": 1,
-                "win_rate": 1.0
+                "sharpe": 0.1546100984967055,
+                "total_return": -0.005179828456650437,
+                "max_drawdown": 0.2720590455045794,
+                "n_trades": 20,
+                "win_rate": 0.25
             }
         },
         {
