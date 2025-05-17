@@ -49,7 +49,7 @@ git merge upstream main
 
 1. **Copy the Template**
    ```bash
-   cp strategies/template.py src/strategies/my_strategy.py
+   cp src/strategies/template.py src/strategies/my_strategy.py
    ```
 
 2. **Edit Your Strategy**
@@ -59,7 +59,7 @@ git merge upstream main
 
 3. **Quick Test**
    ```bash
-   python scripts/test_strategy.py strategies/my_strategy.py
+   python scripts/test_strategy.py src/strategies/my_strategy.py
    ```
    This will:
    - Validate your strategy implementation
