@@ -1,6 +1,26 @@
 {
     "strategies": [
         {
+            "author_name": "Mahak",
+            "strategy_name": "Advanced Buy And Hold Strategy",
+            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
+            "last_updated": "2025-05-17T10:08:45.172317Z",
+            "development_metrics": {
+                "sharpe": 1.4933060731407406,
+                "total_return": 31828.251724137932,
+                "max_drawdown": 0.9112345532958346,
+                "n_trades": 1,
+                "win_rate": 1.0
+            },
+            "holdout_metrics": {
+                "sharpe": 0.5471567498458149,
+                "total_return": 0.057312580028671345,
+                "max_drawdown": 0.3092850660964837,
+                "n_trades": 1,
+                "win_rate": 1.0
+            }
+        },
+        {
             "author_name": "Lucien",
             "strategy_name": "SMA Crossover 1",
             "description": "Goes long when the 32-period SMA crosses above the 140-period SMA, and exits when it crosses below.",
@@ -18,7 +38,7 @@
                 "max_drawdown": 0.2941198645359705,
                 "n_trades": 19,
                 "win_rate": 0.21052631578947367
-            },
+            }
         },
         {
             "author_name": "Ben",
@@ -41,23 +61,23 @@
             }
         },
         {
-            "author_name": "Mahak",
-            "strategy_name": "Advanced Buy And Hold Strategy",
-            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
-            "last_updated": "2025-05-17T10:08:45.172317Z",
+            "author_name": "Will",
+            "strategy_name": "SMA Crossover 1",
+            "description": "Goes long when the 18-period SMA crosses above the 80-period SMA, and exits when it crosses below.",
+            "last_updated": "2025-05-17T10:42:36.923447Z",
             "development_metrics": {
-                "sharpe": 1.4933060731407406,
-                "total_return": 31828.251724137932,
-                "max_drawdown": 0.9112345532958346,
-                "n_trades": 1,
-                "win_rate": 1.0
+                "sharpe": 1.269810403583702,
+                "total_return": 13939.800856186339,
+                "max_drawdown": 0.9369326634424754,
+                "n_trades": 922,
+                "win_rate": 0.4490238611713666
             },
             "holdout_metrics": {
-                "sharpe": 0.5471567498458149,
-                "total_return": 0.057312580028671345,
-                "max_drawdown": 0.3092850660964837,
-                "n_trades": 1,
-                "win_rate": 1.0
+                "sharpe": -0.010999558421471817,
+                "total_return": -0.027846486707612583,
+                "max_drawdown": 0.25898048706982313,
+                "n_trades": 27,
+                "win_rate": 0.2962962962962963
             }
         },
         {
