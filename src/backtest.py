@@ -4,14 +4,10 @@ from metrics import (
     rolling_sharpe_ratio, unrealized_drawdown_series, realized_drawdown_series
 )
 
-def run_backtest(strategy_class, csv_path, initial_capital=10000):
-    # Load data
-    df = pd.read_csv(csv_path).head(1000)
-    # Data cleaning: keep only time, close, volumeto; cast time to datetime; rename volumeto to volume
-    df = df[['time', 'close', 'volumeto']].copy()
-    df['time'] = pd.to_datetime(df['time'])
-    df = df.rename(columns={'volumeto': 'volume'})
-    df = df.reset_index(drop=True)
+def run_backtest(strategy_class, df, initial_capital=10000):
+
+    # Local copy in memory for us to work with
+    df = df.copy()    
 
     # Initialize strategy
     strat = strategy_class(initial_capital=initial_capital)
@@ -19,6 +15,7 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
     equity_curve = [initial_capital]
     position = 0  # 0 = out, 1 = long
     entry_price = None
+    coins = 0  # Track number of coins held
 
     for i, row in df.iterrows():
         bar = {'time': row['time'], 'close': row['close'], 'volume': row['volume']}
@@ -31,15 +28,17 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
             entry_price = row['close']
             strat.position = 1
             strat.entry_price = entry_price
+            coins = equity_curve[-1] / entry_price  # Buy as many coins as possible
             entry_idx = len(equity_curve) - 1
-            print(f"BUY: time={row['time']}, entry_idx={entry_idx}, equity_curve_len={len(equity_curve)}")
+            print(f"BUY: time={row['time']}, entry_idx={entry_idx}, equity_curve_len={len(equity_curve)}, coins={coins}")
             trade = {'entry': row['time'], 'entry_idx': entry_idx, 'entry_price': entry_price}
         elif signal == 'sell' and position == 1:
             position = 0
             exit_price = row['close']
-            pnl = (exit_price - entry_price) / entry_price * equity_curve[-1]
+            equity = coins * exit_price  # Sell all coins
+            pnl = equity - equity_curve[-1]
             exit_idx = len(equity_curve) - 1
-            print(f"SELL: time={row['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}")
+            print(f"SELL: time={row['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}, coins={coins}")
             strat.trades.append({
                 'entry': trade['entry'],
                 'entry_idx': trade['entry_idx'],
@@ -49,7 +48,8 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
                 'exit_price': exit_price,
                 'pnl': pnl
             })
-            equity_curve.append(equity_curve[-1] + pnl)
+            equity_curve.append(equity)
+            coins = 0
             entry_price = None
             strat.position = 0
             strat.entry_price = None
@@ -57,8 +57,8 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
 
         # Update equity curve
         if position == 1:
-            # Mark-to-market
-            equity = equity_curve[-1] * (row['close'] / entry_price)
+            # Mark-to-market: value of held coins at current price
+            equity = coins * row['close']
         else:
             equity = equity_curve[-1]
         equity_curve.append(equity)
@@ -66,9 +66,10 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
     # If still in position at end, close it
     if position == 1:
         exit_price = df.iloc[-1]['close']
-        pnl = (exit_price - entry_price) / entry_price * equity_curve[-1]
+        equity = coins * exit_price
+        pnl = equity - equity_curve[-1]
         exit_idx = len(equity_curve) - 1
-        print(f"FINAL SELL: time={df.iloc[-1]['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}")
+        print(f"FINAL SELL: time={df.iloc[-1]['time']}, exit_idx={exit_idx}, equity_curve_len={len(equity_curve)}, coins={coins}")
         strat.trades.append({
             'entry': trade['entry'],
             'entry_idx': trade['entry_idx'],
@@ -78,7 +79,8 @@ def run_backtest(strategy_class, csv_path, initial_capital=10000):
             'exit_price': exit_price,
             'pnl': pnl
         })
-        equity_curve.append(equity_curve[-1] + pnl)
+        equity_curve.append(equity)
+        coins = 0
 
     # Calculate returns (hourly)
     equity_curve = pd.Series(equity_curve)
