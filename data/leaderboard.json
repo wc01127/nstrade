@@ -21,6 +21,26 @@
             }
         },
         {
+            "author_name": "AryanBhargav",
+            "strategy_name": "Donchian Channel Strategy",
+            "description": "Trades breakouts based on a 20-period Donchian Channel.",
+            "last_updated": "2025-05-17T10:48:50.558267Z",
+            "development_metrics": {
+                "sharpe": 1.6853335109249008,
+                "total_return": 298002959.9805029,
+                "max_drawdown": 0.9739392202670737,
+                "n_trades": 1096,
+                "win_rate": 0.3841240875912409
+            },
+            "holdout_metrics": {
+                "sharpe": 3.4561142192298537,
+                "total_return": 0.5106176445329746,
+                "max_drawdown": 0.06595856609634526,
+                "n_trades": 34,
+                "win_rate": 0.4117647058823529
+            }
+        },
+        {
             "author_name": "Mahak",
             "strategy_name": "Advanced Buy And Hold Strategy",
             "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
@@ -121,6 +141,26 @@
             }
         },
         {
+            "author_name": "Will",
+            "strategy_name": "ML Enhanced Trading Strategy",
+            "description": "A hybrid strategy using machine learning to select optimal parameters for technical indicators including SMA crossovers and RSI.",
+            "last_updated": "2025-05-17T12:54:19.621437Z",
+            "development_metrics": {
+                "sharpe": 1.2090774290484267,
+                "total_return": 5993.580707097279,
+                "max_drawdown": 0.960077682257782,
+                "n_trades": 3079,
+                "win_rate": 0.5849301721338097
+            },
+            "holdout_metrics": {
+                "sharpe": -0.3483303282506719,
+                "total_return": -0.06206203649176956,
+                "max_drawdown": 0.17887322097630512,
+                "n_trades": 89,
+                "win_rate": 0.4943820224719101
+            }
+        },
+        {
             "author_name": "Yuan",
             "strategy_name": "Volume SMA Confirmation Strategy",
             "description": "Goes long when the price breaks above the resistance with high volume, and exits when it breaks below the support with high volume.",
@@ -138,26 +178,6 @@
                 "max_drawdown": 0.19649304246128135,
                 "n_trades": 26,
                 "win_rate": 0.46153846153846156
-            }
-        },
-        {
-            "author_name": "AryanBhargav",
-            "strategy_name": "Donchian Channel Strategy",
-            "description": "Trades breakouts based on a 20-period Donchian Channel.",
-            "last_updated": "2025-05-17T10:48:50.558267Z",
-            "development_metrics": {
-                "sharpe": 1.6853335109249008,
-                "total_return": 298002959.9805029,
-                "max_drawdown": 0.9739392202670737,
-                "n_trades": 1096,
-                "win_rate": 0.3841240875912409
-            },
-            "holdout_metrics": {
-                "sharpe": 3.4561142192298537,
-                "total_return": 0.5106176445329746,
-                "max_drawdown": 0.06595856609634526,
-                "n_trades": 34,
-                "win_rate": 0.4117647058823529
             }
         },
         {
