@@ -21,34 +21,6 @@ class VolumeSMAConfirmationStrategy(Strategy):
         self.res_window = res_window
         self.sup_window = sup_window
         self.last_signal = 'hold'
-
-    def process_bar(self, bar):
-        self.current_bar = bar
-        self.prices.append(bar['close'])
-        self.volumes.append(bar['volume'])
-        if len(self.prices) < max(self.window, self.res_window, self.sup_window):
-            self.last_signal = 'hold'
-            return
-        # Calculate resistance and support as recent max/min close
-        resistance = pd.Series(self.prices).rolling(self.res_window).max().iloc[-2]
-        support = pd.Series(self.prices).rolling(self.sup_window).min().iloc[-2]
-        # Calculate SMA of volume
-        vol_sma = pd.Series(self.volumes).rolling(self.window).mean().iloc[-2]
-
-        # Print some log to debug the resistance vs the self.price[-2], self.price[-1], support
-        logging.debug(f"resistance={resistance}, prev_close={self.prices[-2]}, curr_close={self.prices[-1]}, support={support}")
-
-        # Buy: price breaks above resistance with high volume
-        if self.prices[-2] <= resistance and self.prices[-1] > resistance and bar['volume'] > vol_sma and self.position == 0:
-            self.last_signal = 'buy'
-        # Sell: price breaks below support with high volume
-        elif self.prices[-2] >= support and self.prices[-1] < support and bar['volume'] > vol_sma and self.position == 1:
-            self.last_signal = 'sell'
-        else:
-            self.last_signal = 'hold'
-
-    def get_signal(self):
-        return self.last_signal
     
     def get_signals(self, df):
         """
@@ -58,7 +30,6 @@ class VolumeSMAConfirmationStrategy(Strategy):
         resistance = df['close'].shift(1).rolling(self.res_window).max()
         support = df['close'].shift(1).rolling(self.sup_window).min()
         vol_sma = df['volumefrom'].shift(1).rolling(self.window).mean()
-
 
         buy = (df['close'].shift(1) <= resistance) & \
               (df['close'] > resistance) & \
