@@ -219,6 +219,26 @@
                 "n_trades": 20,
                 "win_rate": 0.25
             }
+        },
+        {
+            "author_name": "Will",
+            "strategy_name": "ML Enhanced Trading Strategy",
+            "description": "A hybrid strategy using machine learning to select optimal parameters for technical indicators including SMA crossovers and RSI.",
+            "last_updated": "2025-05-17T12:54:19.621437Z",
+            "development_metrics": {
+                "sharpe": 1.2090774290484267,
+                "total_return": 5993.580707097279,
+                "max_drawdown": 0.960077682257782,
+                "n_trades": 3079,
+                "win_rate": 0.5849301721338097
+            },
+            "holdout_metrics": {
+                "sharpe": -0.3483303282506719,
+                "total_return": -0.06206203649176956,
+                "max_drawdown": 0.17887322097630512,
+                "n_trades": 89,
+                "win_rate": 0.4943820224719101
+            }
         }
     ]
 }
