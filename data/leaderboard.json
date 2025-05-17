@@ -41,6 +41,26 @@
             }
         },
         {
+            "author_name": "Mahak",
+            "strategy_name": "Advanced Buy And Hold Strategy",
+            "description": "This strategy aims to provide a robust, adaptive approach that can perform well across different market conditions while managing risk effectively.",
+            "last_updated": "2025-05-17T10:08:45.172317Z",
+            "development_metrics": {
+                "sharpe": 1.4933060731407406,
+                "total_return": 31828.251724137932,
+                "max_drawdown": 0.9112345532958346,
+                "n_trades": 1,
+                "win_rate": 1.0
+            },
+            "holdout_metrics": {
+                "sharpe": 0.5471567498458149,
+                "total_return": 0.057312580028671345,
+                "max_drawdown": 0.3092850660964837,
+                "n_trades": 1,
+                "win_rate": 1.0
+            }
+        },
+        {
             "author_name": "Example Author",
             "strategy_name": "Example Strategy",
             "description": "An example strategy",
