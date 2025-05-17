@@ -15,11 +15,15 @@ class SMACrossoverStrategy(Strategy):
             description="Goes long when the 18-period SMA crosses above the 80-period SMA, and exits when it crosses below."
         )
         self.prices = []
-        self.fast = fast
-        self.slow = slow
+        self.fast = fast  # The fast SMA period (18 by default)
+        self.slow = slow  # The slow SMA period (80 by default)
         self.last_signal = 'hold'
 
     def process_bar(self, bar):
+        """
+        Process a single price bar and determine the trading signal.
+        This implementation calculates SMAs on each update for real-time trading.
+        """
         self.current_bar = bar
         self.prices.append(bar['close'])
         if len(self.prices) < self.slow:
@@ -40,6 +44,11 @@ class SMACrossoverStrategy(Strategy):
         return self.last_signal
 
     def get_signals(self, df: pd.DataFrame) -> pd.Series:
+        """
+        Vectorized implementation for backtesting.
+        This is more efficient than calling process_bar() and get_signal() for each bar.
+        The shift(1) operation avoids look-ahead bias by ensuring signals are based on prior data.
+        """
         fast_ma = df['close'].rolling(self.fast).mean()
         slow_ma = df['close'].rolling(self.slow).mean()
         signals = pd.Series('hold', index=df.index)
