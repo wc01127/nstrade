@@ -239,6 +239,46 @@
                 "n_trades": 89,
                 "win_rate": 0.4943820224719101
             }
+        },
+        {
+            "author_name": "Jim",
+            "strategy_name": "Enhanced Price Momentum",
+            "description": "Enhanced momentum strategy with trend confirmation, volatility-based position sizing, and risk management.",
+            "last_updated": "2025-05-17T12:50:15.376811Z",
+            "development_metrics": {
+                "sharpe": 1.5028615712789264,
+                "total_return": 83691.01305699791,
+                "max_drawdown": 0.8047181682279175,
+                "n_trades": 175,
+                "win_rate": 0.4685714285714286
+            },
+            "holdout_metrics": {
+                "sharpe": 2.3589800460822663,
+                "total_return": 0.25319737220833005,
+                "max_drawdown": 0.09536946074759874,
+                "n_trades": 8,
+                "win_rate": 0.75
+            }
+        },
+        {
+            "author_name": "Jim",
+            "strategy_name": "Price Momentum",
+            "description": "Buys when price increases from previous close, sells when it decreases, and holds otherwise.",
+            "last_updated": "2025-05-17T12:39:59.267829Z",
+            "development_metrics": {
+                "sharpe": 0.276275037377082,
+                "total_return": 0.1333457776009599,
+                "max_drawdown": 1.0,
+                "n_trades": 31140,
+                "win_rate": 0.48477842003853566
+            },
+            "holdout_metrics": {
+                "sharpe": 0.20767671433807,
+                "total_return": 0.007159277061369984,
+                "max_drawdown": 0.1572180057756682,
+                "n_trades": 853,
+                "win_rate": 0.47596717467760846
+            }
         }
     ]
 }
