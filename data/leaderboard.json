@@ -1,6 +1,26 @@
 {
     "strategies": [
         {
+            "author_name": "Will",
+            "strategy_name": "Will Fractals 24h",
+            "description": "Optimized 24-hour fractal breakout strategy with protection mechanisms. Constructs 24h bars from 1-hour close prices only and executes signals on the next 1h bar.",
+            "last_updated": "2025-05-18T03:24:23.098856Z",
+            "development_metrics": {
+                "sharpe": 2.4776683641258717,
+                "total_return": 199232748.5700369,
+                "max_drawdown": 0.42925570352018166,
+                "n_trades": 222,
+                "win_rate": 0.9099099099099099
+            },
+            "holdout_metrics": {
+                "sharpe": 3.975519499218606,
+                "total_return": 0.22504933857596043,
+                "max_drawdown": 0.03976081539161014,
+                "n_trades": 5,
+                "win_rate": 1.0
+            }
+        },
+        {
             "author_name": "Genesis",
             "strategy_name": "Volatility ATR Strategy",
             "description": "Dynamic volatility-based strategy using ATR for entries, stops, and position sizing.",
@@ -18,26 +38,6 @@
                 "max_drawdown": 0.16424604668618845,
                 "n_trades": 209,
                 "win_rate": 0.430622009569378
-            }
-        },
-        {
-            "author_name": "Will",
-            "strategy_name": "Will Fractals",
-            "description": "Hourly BTC strategy using five-bar fractal breakouts, 48 h volume thrust, 4 h trend filter, and ATR-style buffered stops.",
-            "last_updated": "2025-05-17T14:54:14.848188Z",
-            "development_metrics": {
-                "sharpe": 1.7569204998559045,
-                "total_return": 1700601969.7703304,
-                "max_drawdown": 0.9576553307462137,
-                "n_trades": 1302,
-                "win_rate": 0.4001536098310292
-            },
-            "holdout_metrics": {
-                "sharpe": 3.6903543718870107,
-                "total_return": 0.5450923846224958,
-                "max_drawdown": 0.10302111324065029,
-                "n_trades": 45,
-                "win_rate": 0.4444444444444444
             }
         },
         {
